@@ -1,0 +1,14 @@
+{
+  "gpu_ids": [3],
+  "output_dir": "./output/sparse",
+  "dataset": {
+    "data_type": "KITTI",
+    "data_path": "/data/Datasets/KITTI/2012",
+    "img_size": [352, 1216],
+    "use_right": false
+  },
+  "dataloader": {
+    "batch_size": 8,
+    "num_workers": 2
+  }
+}

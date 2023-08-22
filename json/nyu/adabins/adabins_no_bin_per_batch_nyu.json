@@ -1,0 +1,57 @@
+{
+  "gpu_ids": [
+    4,
+    5
+  ],
+  "output_dir": "./output/test",
+  "checkpoint": "",
+  "wandb": {
+    "project": "DepthFormer",
+    "entity": "islab-vision",
+    "name": "adabins_no_bin_per_batch_nyu",
+    "mode": "online"
+  },
+  "model": {
+    "name": "adabins",
+    "num_bins": 256,
+    "bn_momentum": 0.1
+  },
+  "loss": {
+    "alpha": 10.0,
+    "beta": 0.15,
+    "per_image": false
+  },
+  "dataset": {
+    "data_type": "NYU",
+    "data_path": "/data/Datasets/NYU/data_nyu",
+    "use_right": false
+  },
+  "dataloader": {
+    "batch_size": 8,
+    "num_workers": 1
+  },
+  "optimizer": {
+    "lr": 0.000357,
+    "weight_decay": 0.1
+  },
+  "scheduler": {
+    "name": "onecycle",
+    "pct_start": 0.3,
+    "div_factor": 25,
+    "final_div_factor": 100
+  },
+  "train": {
+    "print_freq": 20,
+    "valid_freq": 500,
+    "epoch": 25,
+    "num_accum": 2,
+    "grad_norm": 0.1
+  },
+  "eval": {
+    "max_depth_eval": 10,
+    "min_depth_eval": 0.001,
+    "garg_crop": false,
+    "eigen_crop": true,
+    "flip_eval": false
+  }
+}

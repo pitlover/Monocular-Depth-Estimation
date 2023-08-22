@@ -1,0 +1,57 @@
+{
+  "gpu_ids": [
+    0,
+    1
+  ],
+  "output_dir": "./output/test",
+  "checkpoint": "",
+  "wandb": {
+    "project": "DepthFormer",
+    "entity": "islab-vision",
+    "name": "adabins_no_bin_per_batch",
+    "mode": "online"
+  },
+  "model": {
+    "name": "adabins",
+    "num_bins": 256,
+    "bn_momentum": 0.1
+  },
+  "loss": {
+    "alpha": 10.0,
+    "beta": 0.15,
+    "per_image": false
+  },
+  "dataset": {
+    "data_type": "KITTI",
+    "data_path": "/data/Datasets/KITTI/2012",
+    "use_right": false
+  },
+  "dataloader": {
+    "batch_size": 8,
+    "num_workers": 8
+  },
+  "optimizer": {
+    "lr": 0.000357,
+    "weight_decay": 0.1
+  },
+  "scheduler": {
+    "name": "onecycle",
+    "pct_start": 0.3,
+    "div_factor": 25,
+    "final_div_factor": 100
+  },
+  "train": {
+    "print_freq": 20,
+    "valid_freq": 1000,
+    "epoch": 50,
+    "num_accum": 2,
+    "grad_norm": 0.1
+  },
+  "eval": {
+    "max_depth_eval": 80,
+    "min_depth_eval": 0.001,
+    "garg_crop": true,
+    "eigen_crop": false,
+    "flip_eval": false
+  }
+}

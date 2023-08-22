@@ -1,0 +1,14 @@
+{
+  "gpu_ids": [3],
+  "output_dir": "./output/sparse",
+  "dataset": {
+    "data_type": "NYU",
+    "data_path": "/data/Datasets/NYU/data_nyu",
+    "img_size": [427, 565],
+    "use_right": false
+  },
+  "dataloader": {
+    "batch_size": 8,
+    "num_workers": 2
+  }
+}

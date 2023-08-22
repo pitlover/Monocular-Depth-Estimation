@@ -1,0 +1,84 @@
+{
+    "gpu_ids": [0, 1, 2, 3],
+    "output_dir": "./output/test",
+    "checkpoint": "",
+    "wandb": {
+        "project": "DepthFormer",
+        "entity": "islab-vision",
+        "name": "oda_jeju_v2",
+        "mode": "online"
+    },
+    "model": {
+        "name": "oda_jeju",
+        "bn_momentum": 0.1,
+        "decoder_channels": 1024,
+        "input_size": [
+            384,
+            1152
+        ],
+        "num_aux": 128,
+        "aux_dim": 1024,
+        "num_heads": 32,
+        "attn_drop_prob": 0.0,
+        "drop_prob": 0.1,
+        "out_func": "sigmoid"
+    },
+    "loss": {
+        "alpha": 10.0,
+        "beta": 0.15,
+        "per_image": true,
+        "si_weight": 1.0,
+        "oda_weight": 0.0
+    },
+    "dataset": {
+        "data_type": "KITTI",
+        "data_path": "/data/Datasets/KITTI/2012",
+        "img_size": [
+            352,
+            704
+        ],
+        "height_drop": [
+            0.0,
+            0
+        ],
+        "width_drop": [
+            0.0,
+            0
+        ],
+        "use_right": false
+    },
+    "dataloader": {
+        "batch_size": 8,
+        "num_workers": 4
+    },
+    "optimizer": {
+        "lr": 0.00016,
+        "betas": [
+            0.9,
+            0.999
+        ],
+        "weight_decay": 0.01
+    },
+    "scheduler": {
+        "name": "onecycle",
+        "pct_start": 0.3,
+        "div_factor": 25,
+        "final_div_factor": 100,
+        "cycle_momentum": false
+    },
+    "train": {
+        "print_freq": 20,
+        "valid_freq": 500,
+        "epoch": 30,
+        "num_accum": 2,
+        "grad_norm": 0.1,
+        "freeze_encoder_bn": false
+    },
+    "eval": {
+        "max_depth_eval": 80,
+        "min_depth_eval": 0.001,
+        "garg_crop": true,
+        "eigen_crop": false,
+        "flip_eval": false
+    }
+}

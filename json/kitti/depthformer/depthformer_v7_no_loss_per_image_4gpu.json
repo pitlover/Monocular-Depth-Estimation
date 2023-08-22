@@ -1,0 +1,64 @@
+{
+    "gpu_ids": [0, 1, 2, 3],
+    "output_dir": "./output/test",
+    "checkpoint": "",
+    "wandb": {
+        "project": "DepthFormer",
+        "entity": "islab-vision",
+        "name": "depthformer_v7_no_loss_per_image",
+        "mode": "online"
+    },
+    "model": {
+        "name": "depthformer_v7",
+        "hidden_dim": 256,
+        "num_heads": 4,
+        "num_bins": 256,
+        "num_aux": 128,
+        "img_size": [352, 1216],
+        "bn_momentum": 0.1,
+        "attn_drop_prob": 0.1,
+        "drop_prob": 0.2
+    },
+    "loss": {
+        "alpha": 10.0,
+        "beta": 0.15,
+        "per_image": true
+    },
+    "dataset": {
+        "data_type": "KITTI",
+        "data_path": "/data/Datasets/KITTI/2012",
+        "img_size": [352, 704],
+        "height_drop": [0.0, 0],
+        "width_drop": [0.0, 0],
+        "use_right": false
+    },
+    "dataloader": {
+        "batch_size": 32,
+        "num_workers": 8
+    },
+    "optimizer": {
+        "lr": 0.00064,
+        "weight_decay": 0.1
+    },
+    "scheduler": {
+        "name": "onecycle",
+        "pct_start": 0.2,
+        "div_factor": 25,
+        "final_div_factor": 100
+    },
+    "train": {
+        "print_freq": 20,
+        "valid_freq": 250,
+        "epoch": 25,
+        "num_accum": 1,
+        "grad_norm": 0.1,
+        "freeze_encoder_bn": true
+    },
+    "eval": {
+        "max_depth_eval": 80,
+        "min_depth_eval": 0.001,
+        "garg_crop": true,
+        "eigen_crop": false,
+        "flip_eval": false
+    }
+}

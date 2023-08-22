@@ -1,0 +1,91 @@
+{
+  "gpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "output_dir": "./output/test",
+  "checkpoint": "",
+  "wandb": {
+    "project": "DepthFormer",
+    "entity": "islab-vision",
+    "name": "oda_luna_cls_v2_loss_w10",
+    "mode": "online"
+  },
+  "model": {
+    "name": "oda_luna_cls",
+    "bn_momentum": 0.1,
+    "decoder_channels": 1024,
+    "input_size": [
+      384,
+      1152
+    ],
+    "num_bins": 256,
+    "num_aux": 128,
+    "aux_dim": 256,
+    "num_heads": 4,
+    "attn_drop_prob": 0.0,
+    "drop_prob": 0.1,
+    "use_gn": false,
+    "num_groups": 4
+  },
+  "loss": {
+    "alpha": 10.0,
+    "beta": 0.15,
+    "per_image": true,
+    "si_weight": 1.0,
+    "chamfer_weight": 0.1,
+    "oda_weight": 0.1
+  },
+  "dataset": {
+    "data_type": "KITTI",
+    "data_path": "/data/Datasets/KITTI/2012",
+    "img_size": [
+      352,
+      1216
+    ],
+    "height_drop": [
+      0.0,
+      0
+    ],
+    "width_drop": [
+      0.0,
+      0
+    ],
+    "use_right": false
+  },
+  "dataloader": {
+    "batch_size": 6,
+    "num_workers": 6
+  },
+  "optimizer": {
+    "lr": 0.00012,
+    "weight_decay": 0.1,
+    "betas": [0.9, 0.99]
+  },
+  "scheduler": {
+    "name": "onecycle",
+    "cycle_momentum": true,
+    "pct_start": 0.2,
+    "div_factor": 25,
+    "final_div_factor": 100
+  },
+  "train": {
+    "print_freq": 20,
+    "valid_freq": 500,
+    "epoch": 30,
+    "num_accum": 2,
+    "grad_norm": 0.1,
+    "freeze_encoder_bn": false
+  },
+  "eval": {
+    "max_depth_eval": 80,
+    "min_depth_eval": 0.001,
+    "garg_crop": true,
+    "eigen_crop": false,
+    "flip_eval": false
+  }
+}

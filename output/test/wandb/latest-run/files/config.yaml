@@ -1,0 +1,103 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.11
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.10
+    start_time: 1648011620
+    t:
+      1:
+      - 1
+      - 41
+      2:
+      - 1
+      - 41
+      3:
+      - 13
+      - 16
+      4: 3.8.10
+      5: 0.12.11
+      8:
+      - 5
+checkpoint:
+  desc: null
+  value: ''
+dataloader:
+  desc: null
+  value:
+    batch_size: 16
+    num_workers: 8
+dataset:
+  desc: null
+  value:
+    data_path: /data/Datasets/KITTI/2012
+    data_type: KITTI
+    img_size:
+    - 352
+    - 1216
+    use_right: false
+eval:
+  desc: null
+  value:
+    eigen_crop: false
+    flip_eval: false
+    garg_crop: true
+    max_depth_eval: 80
+    min_depth_eval: 0.001
+gpu_ids:
+  desc: null
+  value:
+  - 0
+loss:
+  desc: null
+  value:
+    alpha: 10.0
+    beta: 0.15
+    per_image: false
+model:
+  desc: null
+  value:
+    bn_momentum: 0.1
+    hidden_dim: 256
+    img_size:
+    - 352
+    - 1216
+    name: depthformer_v5
+    num_heads: 4
+    num_repeat: 6
+num_gpus:
+  desc: null
+  value: 1
+optimizer:
+  desc: null
+  value:
+    lr: 0.000357
+    weight_decay: 0.1
+output_dir:
+  desc: null
+  value: ./output/test
+scheduler:
+  desc: null
+  value:
+    div_factor: 25
+    final_div_factor: 100
+    pct_start: 0.3
+train:
+  desc: null
+  value:
+    epoch: 25
+    grad_norm: 0.1
+    num_accum: 1
+    print_freq: 20
+    valid_freq: 250
+wandb:
+  desc: null
+  value:
+    entity: islab-vision
+    mode: online
+    name: depthformer_v5
+    project: DepthFormer

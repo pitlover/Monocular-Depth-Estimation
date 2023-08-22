@@ -1,0 +1,27 @@
+{
+    "os": "Linux-5.13.0-35-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2022-03-23T05:00:20.951288",
+    "startedAt": "2022-03-23T05:00:20.033470",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [
+        "--opt",
+        "./json/jiiizero.json"
+    ],
+    "state": "running",
+    "program": "run.py",
+    "codePath": "run.py",
+    "git": {
+        "remote": "https://github.com/islab-github/DepthFormer",
+        "commit": "509fbcce4045813ac7dfc937e8562dfd414ddfd7"
+    },
+    "email": "pitlover@naver.com",
+    "root": "/home/jiyoungkim/Research/DepthFormer",
+    "host": "jiyoungkim-MS-7C94",
+    "username": "jiyoungkim",
+    "executable": "/usr/bin/python3"
+}
